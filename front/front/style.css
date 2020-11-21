@@ -27,6 +27,13 @@ ul {
     text-decoration: none;
     cursor:pointer;
 }
+
+#navigation .nav ul .navI .logo{
+    font-family: Kristen ITC;
+    font-size: 50px;
+    color: #FFFFFF;
+}
+
 #navigation .nav ul li:hover{
     color: cornflowerblue;
 }
