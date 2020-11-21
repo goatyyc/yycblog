@@ -92,3 +92,8 @@ iframe {
 .sort label{
     margin: 20px;
 }
+
+.sort .btn{
+    padding: 10px;
+}
+
