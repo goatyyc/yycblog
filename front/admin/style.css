@@ -93,7 +93,16 @@ iframe {
     margin: 20px;
 }
 
-.sort .btn{
+.sort .btn input{
+    border-width: 0px; /* 边框宽度 */
+    border-radius: 3px; /* 边框半径 */
+    background: #1E90FF; /* 背景颜色 */
+    cursor: pointer; /* 鼠标移入按钮范围时出现手势 */
+    outline: none; /* 不显示轮廓线 */
+    font-family: Microsoft YaHei; /* 设置字体 */
+    color: white; /* 字体颜色 */
+    font-size: 17px; /* 字体大小 */
     padding: 10px;
+    margin: 10px;
 }
 
