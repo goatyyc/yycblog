@@ -202,7 +202,7 @@ window.onload = function() {
                     op += "<option value="+data.data[i]['id']+">"+data.data[i]['label_name']+"</option>";
                 }
                 op = op_0+op;
-                // console.log(op);
+                console.log(op);
                 document.getElementById("article_label_id").innerHTML = op;
             }
         }
