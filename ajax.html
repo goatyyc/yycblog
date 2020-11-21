@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+</head>
+<body>
+<form>
+    <input type="file" id="file" name="file"><br>
+    <input type="text" id="cate" name="cate"><br>
+    <input type="button" value="发布" onclick="uploadFile()">
+</form>
+<script>
+    function uploadFile() {
+        var myform = new FormData();
+        myform.append('file',$("#file")[0].files[0]);
+        myform.append('cate',$("#cate").val());
+        // console.log(myform.get('file'));
+        // $.ajax({
+        //     url:"./index.php/AdminAction/add_article",
+        //     type:"POST",
+        //     data:myform,
+        //     async:false,
+        //     contentType:false,
+        //     processData: false,
+        //     dataType:"json",
+        //     success: function (result) {
+        //         if(result && result.code){
+        //             // alert("发布成功");
+        //             console.log(result.msg);
+        //             console.log(result.data);
+        //         }else {
+        //             alert("发布失败");
+        //         }
+        //     }
+        // })
+    }
+</script>
+</body>
+</html>

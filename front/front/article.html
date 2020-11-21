@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="../../extensions/marked/lib/marked.js"></script>
+
+    <link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/solarized_dark.min.css">
+    <script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="../../extensions/highlight/highlight.pack.js"></script>
+    <linK rel="stylesheet" type="text/css" href="../../extensions/highlight/styles/vs2015.css">
+    <script src="art_action.js"></script>
+    <style>
+        body{
+            background-color: #FFFFFF;
+        }
+        blockquote{
+            margin: 0;
+            padding-left: 20px;
+            border:1px solid #DFE2E5;
+            background-color: #DFE2E5;
+        }
+        img {
+            zoom: 50%;
+        }
+        #main {
+            margin: auto;
+            width: 70%;
+            border: 1px solid #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="title">
+        <h1>welcome to yyc's blog</h1>
+        <hr>
+    </div>
+    <div class="main" id="main">
+
+    </div>
+</div>
+<script>
+    marked.setOptions({
+        renderer: new marked.Renderer(),
+        gfm: true,
+        tables: true,
+        escaped : true,
+        breaks: false,
+        pedantic: false,
+        sanitize: false,
+        smartLists: true,
+        smartypants: false,
+        highlight: function (code, lang) {
+            return hljs.highlightAuto(code).value;
+        }
+    });
+    let path = getQueryVariable('id');
+    let res = $.ajax({
+        url:"/yycblog/index.php/AdminAction/article_path?id="+path,
+        type:"get",
+        async:false,
+        success: function (data) {
+            if(data.code){
+                console.log(data);
+                // console.log(data.data.path);
+                var art_path = data.data.path;
+                //拼接成文章路径
+                var path = "http://118.126.100.116/yycblog/"+art_path;
+                console.log(path);
+                //调用函数渲染到文章页面
+                apply_article(path);
+            }
+        }
+
+    });
+    // console.log(md['responseText']);
+    // document.getElementById('main').innerHTML =
+    //     marked(md['responseText']);
+</script>
+</body>
+</html>

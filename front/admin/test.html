@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+</head>
+<body>
+    <form id="userDataEdit">
+        文件:<input type="file" id="fileUpload" name="file">
+        id:<input type="text" id="id" name="id">
+        <input type="button" value="提交" onclick="get()">
+    </form>
+
+<script>
+    function get() {
+        //把表单数据转换为 对象
+        function serializeObject(obj) {
+            var result = {}; // 准备一个空对象
+            var params = obj.serializeArray();
+            $.each(params, function (index, value) {
+                result[value.name] = value.value;
+            });
+            return result; // 将处理的结果返回到函数外部
+        }
+
+        var data = serializeObject($("#userDataEdit"))
+
+        //实例化一个表单对象，用于保存数据
+        var formData = new FormData();
+        formData.append('file', $('#fileUpload')[0].files[0]); //添加图片信息的参数
+        formData.append('id', data.id);
+
+        $.ajax({
+            type:"post",
+            url:"/yycblog/test.php",
+            data:formData,
+            cache: false, //上传文件不需要缓存
+            processData: false, // 告诉jQuery不要去处理发送的数据
+            contentType: false, // 告诉jQuery不要去设置Content-Type请求头
+            success:function(data) {
+                setTimeout(function(){
+                    console.log(data);
+                    // alert("修改成功")
+                    // location.href="/"
+                },250)
+            }
+        })
+    }
+</script>
+</body>
+</html>
