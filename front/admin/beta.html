@@ -26,8 +26,12 @@
                 <ul>
                     <li>标题: <input type="text" id="title" name="title"></li>
                     <li>文章: <input type="file" id="article" name="file"></li>
-                    <li>标签: <input type="text" id="label" name="label"></li>
-
+<!--                    <li>标签: <input type="text" id="label" name="label"></li>-->
+                    <div class="">
+                        <label>上级分类</label>
+                        <select name="article_label_id" id="article_label_id">
+                        </select>
+                    </div>
                     <li><input type="button" value="提交" onclick="get_article()"></li>
 
                 </ul>
@@ -35,7 +39,7 @@
 
         </div>
         <div class="sort" id="edit_info">
-            不搞这个了
+            待开发...
         </div>
         <div class="sort" id="edit_label">
             <form method="post" action="" id="myForm">

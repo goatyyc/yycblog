@@ -66,37 +66,7 @@ function tag() {
     }
 }
 
-//把表单数据转换为 对象
 
-
-//发表文章
-// function get_article() {
-//     var btn = document.getElementById("publish_article_btn");
-//     btn.onclick = function () {
-//         var data = serializeObject("#publish_article_form");
-//
-//         //实例化一个表单对象，存储数据
-//         var form = new FormData();
-//         form.append('file',$('#article')[0].files[0]);      //添加图片信息参数
-//         form.append('label',data.label);
-//
-//         $.ajax({
-//             url:"/yycblog/test.php",
-//             type:"post",
-//             data:form,
-//             cache:false,        //不缓存
-//             processData:false,  //不处理发送的数据
-//             contentType:false,  //不设置content-type请求头
-//
-//             success:function (data) {
-//                 console.log(data);
-//             }
-//
-//         })
-//
-//     }
-//
-// }
 function get_article() {
     //把表单数据转换为 对象
     function serializeObject(obj) {
@@ -108,11 +78,12 @@ function get_article() {
         return result; // 将处理的结果返回到函数外部
     }
     var data = serializeObject($("#publish_article_form"));
-
+    var aritcle_label_id = document.getElementById("article_label_id").value;       //标签分类的i
+    // console.log(aritcle_label_id);
     //实例化一个表单对象，存储数据
     var form = new FormData();
     form.append('file',$('#article')[0].files[0]);      //添加图片信息参数
-    form.append('label',data.label);
+    form.append('label',aritcle_label_id);
     form.append('title',data.title);
 
     $.ajax({
@@ -129,7 +100,7 @@ function get_article() {
             }else {
                 alert("发布失败:"+data.msg);
             }
-            console.log(data)
+            document.getElementById("publish_article_form").reset();
         }
 
     })
@@ -138,10 +109,7 @@ function get_article() {
 
 }
 
-function show_cate() {
-    //请求后台分类的标签
 
-}
 
 //展示文章
 function show_all_article() {
@@ -175,7 +143,7 @@ function show_all_article() {
 //删除文章
 function delete_article(article_id){
     //ajax调用删除文章接口
-    console.log(article_id);
+    // console.log(article_id);
     $.ajax({
         url:"/yycblog/index.php/AdminAction/delete_article?article_id="+article_id,
         type:"get",
@@ -220,5 +188,23 @@ function submitForm() {
 
 window.onload = function() {
     tag();              //tag切换
-    show_cate();        //分类标签
+
+    //文章标签
+    $.ajax({
+        url:"/yycblog/index.php/AdminAction/get_cate",
+        type:"get",
+        success: function (data) {
+            //dom显示到页面
+            if(data.code){
+                var op_0 = "<option value=0>"+"请选择"+"</option>";
+                var op = "";
+                for(let i=0; i<data.data.length; i++){
+                    op += "<option value="+data.data[i]['id']+">"+data.data[i]['label_name']+"</option>";
+                }
+                op = op_0+op;
+                // console.log(op);
+                document.getElementById("article_label_id").innerHTML = op;
+            }
+        }
+    })
 };
