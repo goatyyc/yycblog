@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+    <div>
+        pwd:<input type="password" name="pwd" id="pwd"><br>
+        <button onclick="login()">确定</button>
+    </div>
+
+<script>
+    function login() {
+        var pwd = document.getElementById("pwd").value;
+        var data = {'pwd':pwd};
+        $.ajax({
+            url:"/yycblog/index.php/User/login",
+            type:"post",
+            data:data,
+            success:function (data) {
+                if(data.code){
+                    window.location.replace("/yycblog/front/admin/beta.html");
+                }else{
+                    alert("密码错误");
+                }
+            }
+        })
+    }
+</script>
+</body>
+</html>

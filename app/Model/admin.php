@@ -22,7 +22,8 @@ class admin{
     //添加文章
     public function add_article($article_data,$path)
     {
-        $data = ['title'=>$article_data['title'],'path'=>$path,'label'=>$article_data['label']];
+        $time = time();         //发表时间
+        $data = ['title'=>$article_data['title'],'path'=>$path,'label'=>$article_data['label'],'create_time'=>$time];
         $insert_id = Db::insert('article',$data);
         if(!$insert_id){
             return false;

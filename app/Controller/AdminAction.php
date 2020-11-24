@@ -2,28 +2,8 @@
 require_once './core/Db.php';
 require_once 'Base.php';
 require_once './app/Model/admin.php';
-class AdminAction extends Base {
-
-    public static function auth()
-    {
-        session_start();
-        if(!isset($_SESSION['id'])){
-            self::jsonReturn(0,'非法访问');
-        }
-    }
-
-    public function login()
-    {
-        session_start();
-        $admin = new admin();
-        $res = $admin->login(get_json());
-        if(!$res){
-            $this->jsonReturn(0,'failed');
-        }
-
-        $this->jsonReturn(1,'success');
-    }
-
+require_once 'Token.php';
+class AdminAction extends Token {
     //添加文章
     public function add_article()
     {
@@ -38,7 +18,6 @@ class AdminAction extends Base {
         }
         $admin = new admin();
         $insert_id = $admin->add_article($data,$path);    //bug：字段超过其长度
-
         if($insert_id){
             $this->jsonReturn(1,'发布成功',$insert_id);
         }else{
@@ -121,9 +100,4 @@ class AdminAction extends Base {
     }
 
 
-    //测试
-    public function test()
-    {
-
-    }
 }

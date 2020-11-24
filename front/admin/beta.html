@@ -69,6 +69,16 @@
         </div>
     </div>
 </div>
-
+<script>
+    $.ajax({
+        url:"/yycblog/index.php/Token/index",
+        type:"get",
+        success:function (data) {
+            if(data.code === 0){
+                window.location.replace("/yycblog/front/admin/login.html");
+            }
+        }
+    })
+</script>
 </body>
 </html>

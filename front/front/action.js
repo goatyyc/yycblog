@@ -1,6 +1,7 @@
 function show_article(page) {
     $.ajax({
-        url:"/yycblog/index.php/AdminAction/show_article?page="+page,
+        // url:"/yycblog/index.php/AdminAction/show_article?page="+page,
+        url:"/yycblog/index.php/ArticleAction/show_article?page="+page,
         type: "get",
         success:function (data) {
             console.log(data);
@@ -27,7 +28,8 @@ function load_page() {
     let page = "";
     $.ajax({
         type: 'GET',
-        url:'/yycblog/index.php/AdminAction/query_article',
+        // url:'/yycblog/index.php/AdminAction/query_article',
+        url:'/yycblog/index.php/ArticleAction/query_article',
         dataType: 'json',
         success: function (data) {
             console.log(data);
@@ -55,7 +57,8 @@ function show_page(id)
 //获取所有文章
 function get_all_articles() {
     $.ajax({
-        url:"/yycblog/index.php/AdminAction/query_article",
+        // url:"/yycblog/index.php/AdminAction/query_article",
+        url:"/yycblog/index.php/ArticleAction/query_article",
         type: "get",
         success:function (data) {
             console.log(data);
@@ -93,7 +96,8 @@ window.onload=function ()
 
 function show_labels() {
     $.ajax({
-        url:"/yycblog/index.php/AdminAction/get_cate",
+        // url:"/yycblog/index.php/AdminAction/get_cate",
+        url:"/yycblog/index.php/ArticleAction/get_cate",
         type:"get",
         success: function (data) {
             //dom显示到页面

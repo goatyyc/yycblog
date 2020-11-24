@@ -3,8 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="8b5f625f-43cc-45d1-967f-601b490d8340" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Controller/AdminAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Controller/AdminAction.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Model/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/Db.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/Db.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/admin/beta.html" beforeDir="false" afterPath="$PROJECT_DIR$/front/admin/beta.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/admin/tab.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/admin/tab.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/front/action.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/front/action.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/front/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/front/front/index.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,8 +25,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="HTML File" />
+        <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -29,13 +35,16 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1kDl6o0CpXL4cPmZqiEEjDqn0GX" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../bbs" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -68,7 +77,9 @@
       <updated>1605242869076</updated>
       <workItem from="1605242870536" duration="11473000" />
       <workItem from="1605525109988" duration="112484000" />
-      <workItem from="1605940905079" duration="912000" />
+      <workItem from="1605940905079" duration="1731000" />
+      <workItem from="1605967632538" duration="504000" />
+      <workItem from="1606135451771" duration="30673000" />
     </task>
     <servers />
   </component>

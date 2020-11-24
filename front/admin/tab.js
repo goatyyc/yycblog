@@ -67,6 +67,7 @@ function tag() {
 }
 
 
+//添加文章
 function get_article() {
     //把表单数据转换为 对象
     function serializeObject(obj) {
@@ -95,6 +96,7 @@ function get_article() {
         contentType:false,  //不设置content-type请求头
 
         success:function (data) {
+            console.log(data);
             if(data.code){
                 alert("发布成功");
             }else {
@@ -104,9 +106,6 @@ function get_article() {
         }
 
     })
-
-
-
 }
 
 
@@ -121,11 +120,7 @@ function show_all_article() {
             if(data.code){
                 var li = "";
                 for (let i=0; i<data.data.length; i++){
-                    // li += "<tr>"+"<td>"+"<a href='article.html?id="+data.data[i]['id']+"'"+
-                    //     " target='_blank'"+">"+"</td>"+"<td>"+
-                    //     data.data[i]['title']+"</a>"+"</td>"+
-                    //     "<td>"+"<button onclick='delete_article(data.data[i]['id'])'>删除</button>"+"</td>"
-                    //     +"</tr>";
+
                     let art_id = data.data[i]['id'];
                     li += "<tr>"+"<td>"+
                         data.data[i]['title']+"</td>"+
@@ -202,7 +197,6 @@ window.onload = function() {
                     op += "<option value="+data.data[i]['id']+">"+data.data[i]['label_name']+"</option>";
                 }
                 op = op_0+op;
-                console.log(op);
                 document.getElementById("article_label_id").innerHTML = op;
             }
         }

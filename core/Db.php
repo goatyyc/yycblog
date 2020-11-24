@@ -22,6 +22,7 @@ class Db{
         if($where){
             $sql .= ' where '.self::getWhere($where);
         }
+//        var_dump($sql);
         if($result = mysqli_query($conn, $sql)){
             while ($row = mysqli_fetch_assoc($result)){
                 $rows[] = $row;
